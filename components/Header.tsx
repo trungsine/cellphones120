@@ -1,4 +1,7 @@
 import React from "react";
+// import css
+import "../styles/header.css";
+
 import { IoMdListBox } from "react-icons/io";
 import { CiLocationOn } from "react-icons/ci";
 import { MdKeyboardArrowDown } from "react-icons/md";
@@ -71,13 +74,12 @@ function Header() {
             Giỏ <br /> hàng
           </h2>
 
-          <h2>Giỏ hàng</h2>
-
-          <span className="header-itemInCart">0</span>
+          {/* <h2>Giỏ hàng</h2> */}
         </div>
 
         <div className="header-userLogin">
           <FaRegUserCircle />
+          <h2>Đăng nhập</h2>
         </div>
       </div>
     </div>

@@ -1,13 +1,14 @@
-import UserList from "@/components/UserList";
-import styles from "./page.module.css";
 import Header from "@/components/Header";
+import "./globals.css";
+import Topbar from "@/components/Topbar";
+import Banner from "@/components/Banner";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <h1>Hello World</h1>
-        {/* <UserList /> */}
+    <main>
+      <div>
+        <Topbar />
+        <Banner />
         <Header />
       </div>
     </main>
