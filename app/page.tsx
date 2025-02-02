@@ -1,5 +1,6 @@
 import Banner from "@/components/Banner";
 import Header from "@/components/Header";
+import SlideProduct from "@/components/SlideProduct";
 import Topbar from "@/components/Topbar";
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
         <Topbar />
         <Banner />
         <Header />
+        <SlideProduct />
       </div>
     </main>
   );

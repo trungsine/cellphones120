@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
 * {
   margin: 0;
@@ -9,7 +10,15 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Roboto, sans-serif;
+}
+
+.customWidth {
+  @apply w-12 whitespace-nowrap overflow-hidden text-ellipsis lg:w-auto lg:whitespace-normal lg:overflow-visible  lg:text-clip;
+}
+
+.custom {
+  @apply cursor-pointer hidden md:hidden lg:flex h-[42px]  items-center rounded-[10px] hover:bg-[#df3346] py-[3px] px-[10px];
 }
 
 @layer utilities {

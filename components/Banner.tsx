@@ -3,7 +3,7 @@ import React from "react";
 function Banner() {
   return (
     <div className="bg-[#e9efff] flex h-10 items-center justify-evenly">
-      <div className="block sm:hidden">
+      <div className="block md:hidden">
         <a href="#">
           <img
             className="h-[30px]"
@@ -21,7 +21,7 @@ function Banner() {
           />
         </a>
       </div>
-      <div className="hidden sm:block">
+      <div className="hidden sm:block md:hidden lg:block">
         <a href="#">
           <img
             className="h-[30px]"
