@@ -8,34 +8,44 @@ import { FiPhone } from "react-icons/fi";
 import { LiaShippingFastSolid } from "react-icons/lia";
 import { IoBagOutline } from "react-icons/io5";
 import { FaRegUserCircle } from "react-icons/fa";
+import Image from "next/image";
 
-function Header() {
-  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+type HeaderProps = {
+  onToggleDropdown: () => void;
+};
+
+const Header: React.FC<HeaderProps> = ({ onToggleDropdown }) => {
+  const [isLargeScreen, setisLargeScreen] = useState<boolean>(false);
   //Event Resize Update Window Size
   useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
+    const mediaQuery = window.matchMedia("(min-width: 1100px)");
+    setisLargeScreen(mediaQuery.matches); // kiểm tra kích thước lập tức
 
-    window.addEventListener("resize", handleResize);
+    const handleChange = (e: MediaQueryListEvent) =>
+      setisLargeScreen(e.matches);
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
   return (
     <div className="justify-center bg-[#e1042a]  w-full flex">
       <div className="header-container w-[1200px] bg-[#e1042a] flex items-center justify-around lg:justify-between text-xs text-[#fff] relative h-[64px]">
         <div className="hidden sm:hidden lg:flex">
-          <img
-            className="w-[170px] h-[40px] block"
+          <Image
+            width={170}
+            height={49}
+            className="block"
             src="https://cdn2.cellphones.com.vn/x/media/wysiwyg/logo_cps-1.png"
             alt="logo-cellphones"
           />
         </div>
 
         <div className="flex sm:flex lg:hidden">
-          <img
-            className="w-8 h-8 border border-solid border-white rounded-[10px]"
+          <Image
+            width={32}
+            height={32}
+            className="border border-solid border-white rounded-[10px]"
             src="https://yt3.googleusercontent.com/rK8cTvkOXk2t-f1xlBTsyx4VtHjrKWdBPKHaMTUdxTuQBY3oZ8Gok-H2NZPwp3aJAYO_cRLO=s900-c-k-c0x00ffffff-no-rj"
             alt="logo-cellphones"
           />
@@ -46,7 +56,10 @@ function Header() {
           <h2 className="text-xs m-0">Danh mục</h2>
         </div>
 
-        <div className="order-1 lg:order-none items-center flex rounded-[10px] cursor-pointer bg-[#df3346] px-2 md:px-[10px] py-[3px]">
+        <div
+          onClick={onToggleDropdown}
+          className="order-1 lg:order-none items-center flex rounded-[10px] cursor-pointer bg-[#df3346] px-2 md:px-[10px] py-[3px]"
+        >
           <CiLocationOn className="text-2xl mx-[5px] md:mr-[5px]" />
           <div>
             <div className="flex">
@@ -73,7 +86,7 @@ function Header() {
         <div className="custom">
           <FiPhone className="text-2xl mr-[5px]" />
           <div className="customWidth">
-            {windowWidth > 1100 ? (
+            {isLargeScreen ? (
               <span>
                 Gọi mua hàng <br /> 1800.2097
               </span>
@@ -88,7 +101,7 @@ function Header() {
         <div className="custom">
           <CiLocationOn className="text-2xl mr-[5px]" />
           <div className="customWidth">
-            {windowWidth > 1024 ? (
+            {isLargeScreen ? (
               <span className="text-xs m-0">
                 Cửa hàng <br /> gần bạn
               </span>
@@ -107,14 +120,14 @@ function Header() {
           </h2>
         </div>
 
-        <div className="order-2 lg:order-none bg-[#df3346] md:bg-transparent lg:hover:bg-[#df3346] cursor-pointer h-[42px] flex-row md:flex items-center rounded-[10px] pb-[6px] py-[3px] px-[10px] sm:px-10  md:px-[10px]">
+        <div className="order-2 lg:order-none bg-[#df3346] lg:bg-transparent lg:hover:bg-[#df3346] cursor-pointer h-[42px] flex-row lg:flex items-center rounded-[10px] pb-[6px] py-[3px] px-[10px] sm:px-10  md:px-[10px]">
           <div className="flex justify-center md:block ">
             <IoBagOutline className="text-2xl mx-auto" />
           </div>
 
           <h2 className="text-[9px] md:text-xs  m-0">
             Giỏ{" "}
-            <span className="hidden md:inline">
+            <span className="hidden lg:inline">
               {" "}
               <br />{" "}
             </span>{" "}
@@ -129,6 +142,6 @@ function Header() {
       </div>
     </div>
   );
-}
+};
 
 export default Header;
