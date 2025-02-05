@@ -23,10 +23,6 @@ const contentStyle: React.CSSProperties = {
   objectFit: "cover"
 };
 
-type MyCarouselProps = {
-  images: string[];
-};
-
 const images = [
   "https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:90/plain/https://dashboard.cellphones.com.vn/storage/tet-2025-tecno-canon-30s.jpg",
   "https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:90/plain/https://dashboard.cellphones.com.vn/storage/tet-2025-jbl-party-box.jpg",
@@ -35,7 +31,7 @@ const images = [
   "https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:90/plain/https://dashboard.cellphones.com.vn/storage/insta360-sale-tet-ant-2025.jpg"
 ];
 
-const SlideProduct: React.FC<MyCarouselProps> = () => {
+const SlideProduct: React.FC = () => {
   const carouselRef = useRef<CarouselRef | null>(null); // Tham chiếu đến Carousel
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const [isFocused, setIsFocused] = useState<boolean>(false); // state để kiểm tra focus tải trang lần đầu
