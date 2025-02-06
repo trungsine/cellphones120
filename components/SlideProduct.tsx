@@ -5,7 +5,7 @@ import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { CgAppleWatch } from "react-icons/cg";
 import { FaChevronRight } from "react-icons/fa";
-import { FaChevronLeft, FaComputer, FaRegNewspaper } from "react-icons/fa6";
+import { FaComputer, FaRegNewspaper } from "react-icons/fa6";
 import { HiOutlineSpeakerphone } from "react-icons/hi";
 import { IoPhonePortraitOutline } from "react-icons/io5";
 import { MdAutorenew, MdLaptopMac } from "react-icons/md";
