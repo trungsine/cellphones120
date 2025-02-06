@@ -11,6 +11,8 @@
 
 body {
   font-family: Roboto, sans-serif;
+  width: 100%;
+  background-color: red;
 }
 
 .customWidth {
@@ -41,6 +43,20 @@ body {
 /* Đặt màu nền cho thanh kéo khi hover */
 ::-webkit-scrollbar-thumb:hover {
   /* background: rgb(112, 112, 112) 3b3; */
+}
+
+.ant-carousel {
+  position: relative;
+}
+
+.ant-carousel .slick-prev,
+.ant-carousel .slick-next {
+  position: absolute;
+  left: "-35px";
+  right: "-35px";
+}
+
+.ant-carousel .slick-next {
 }
 
 @layer utilities {
