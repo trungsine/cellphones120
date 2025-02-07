@@ -5,7 +5,7 @@ import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { CgAppleWatch } from "react-icons/cg";
 import { FaChevronRight } from "react-icons/fa";
-import { FaComputer, FaRegNewspaper } from "react-icons/fa6";
+import { FaChevronLeft, FaComputer, FaRegNewspaper } from "react-icons/fa6";
 import { HiOutlineSpeakerphone } from "react-icons/hi";
 import { IoPhonePortraitOutline } from "react-icons/io5";
 import { MdAutorenew, MdLaptopMac } from "react-icons/md";
@@ -39,25 +39,43 @@ const SlideProduct: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const [initialLoad, setInitialLoad] = useState(true);
 
-  console.log(">>> CurrentSlide: ", currentSlide);
+  // console.log(">>> CurrentSlide: ", currentSlide);
+
+  useEffect(() => {
+    // Không cần làm gì trong useEffect này, vì currentSlide đã được cập nhật
+    // sau khi carousel chuyển slide nhờ afterChange.
+    // Mục đích của useEffect này là để component re-render và cập nhật class
+    // cho các button dựa trên currentSlide.
+  }, [currentSlide]);
+
+  // useEffect(() => {
+  //   setInitialLoad(false); // Đảm bảo initialLoad là false sau lần render đầu tiên
+  // }, []);
 
   const handleButtonClick = (index: number) => {
     setCurrentSlide(index);
-    setTimeout(() => {
-      carouselRef.current?.goTo(index);
-    }, 0);
+    carouselRef.current?.goTo(index);
     setInitialLoad(false);
   };
 
-  useEffect(() => {
-    setInitialLoad(false); // Đảm bảo initialLoad là false sau lần render đầu tiên
-  }, []);
+  // Navigation Button
+  const slickPrev = () => {
+    carouselRef.current?.prev();
+  };
+
+  const slickNext = () => {
+    carouselRef.current?.next();
+  };
+
+  const onChange = (current: number) => {
+    setCurrentSlide(current);
+  };
 
   return (
-    <div className="relative overflow-hidden group z-10 max-w-[1200px] bg-white rounded-xl mx-auto grid grid-cols-[0%,100%,0%] lg:grid-cols-[19.73%,59.16%,19.73%] gap-0 sm:gap-2 mt-3 px-[10px] pt-[10px]">
+    <div className="relative overflow-hidden group z-10 max-w-[1200px] bg-white rounded-none sm:rounded-xl mx-auto grid grid-cols-[0%,100%,0%] sm:grid-cols-[19.73%,78.9%,0%] lg:grid-cols-[19.73%,59.16%,19.73%] gap-0 sm:gap-2 mt-3 px-[10px] pt-[10px]">
       {/* Left */}
-      <div className=" bg-white shadow-lg rounded-xl">
-        <ul className="w-full h-full mb-0">
+      <div className=" bg-white shadow-lg rounded-xl overflow-y-auto">
+        <ul className="hidden sm:block w-full h-full mb-0">
           {/* {listItems.map((value, index) => {
             return (
               <li className="px-2 py-1" key={index}>
@@ -178,42 +196,44 @@ const SlideProduct: React.FC = () => {
       </div>
       {/* Center */}
       <div className="bg-white w-full h-full flex flex-col rounded-xl shadow-lg">
-        <div className="w-full h-full sm:h-[75%]">
-          <div className="relative overflow-hidden">
+        <div className="w-full h-auto sm:h-[78%] relative">
+          <div className="relative overflow-x-hidden overflow-y-auto">
             <Carousel
               className="ant-carousel"
-              dots={false}
+              dots={true}
               ref={carouselRef}
-              arrows
-              autoplay
-              // infinite={true}
-              beforeChange={(current, index) => {
-                setCurrentSlide(index);
-                setInitialLoad(false); // Đồng bộ trạng thái khi carousel thay đổi
-              }}
+              // autoplay
+              // beforeChange={(current, index) => {
+              //   setCurrentSlide(index);
+              //   setInitialLoad(false); // Đồng bộ trạng thái khi carousel thay đổi
+              // }}
+              afterChange={onChange} // Sử dụng afterChange để đồng bộ
             >
               {images.map((value, index) => {
                 return (
-                  <div key={index}>
+                  <div key={index} className="h-auto">
                     <Image
-                      className="rounded-tl-2xl rounded-tr-2xl object-cover w-full h-full"
+                      className="rounded-none sm:rounded-tl-2xl sm:rounded-tr-2xl object-contain w-full h-auto"
                       style={contentStyle}
                       src={value}
                       alt="slide"
                       width={500}
                       height={670}
                       quality={100}
-                      // layout="responsive"
+                      layout="responsive"
                     />
                   </div>
                 );
               })}
             </Carousel>
-            {/* <div
+            <div
               className="absolute inset-0 z-10 flex items-center justify-between transition-opacity duration-300 group-hover:opacity-100 opacity-0"
               style={{ left: "-35px", right: "-35px" }}
             >
-              <button className=" p-5 rounded-full shadow bg-black opacity-50 text-white-800 text-white">
+              <button
+                onClick={slickPrev}
+                className=" p-5 rounded-full shadow bg-black opacity-50 text-white-800 text-white"
+              >
                 <FaChevronLeft
                   size={20}
                   className="pl-2 relative left-[10px]"
@@ -221,17 +241,17 @@ const SlideProduct: React.FC = () => {
               </button>
               <button
                 className=" p-5 rounded-full shadow bg-black opacity-50 text-white-800 text-white"
-                onClick={() => handleButtonClick}
+                onClick={slickNext}
               >
                 <FaChevronRight
                   size={20}
                   className="pr-2 relative right-[10px]"
                 />
               </button>
-            </div> */}
+            </div>
           </div>
         </div>
-        <div className="hidden sm:grid grid-cols-5 h-0 sm:h-[25%] mt-2 ">
+        <div className="hidden sm:grid grid-cols-5 h-0 sm:h-[22%]">
           {buttons.map((value, index) => {
             return (
               <button
@@ -250,6 +270,7 @@ const SlideProduct: React.FC = () => {
             );
           })}
         </div>
+        <div className="block sm:hidden h-1 my-5">Div trống</div>
       </div>
       {/* Right */}
       <div className="grid grid-rows-3 h-full gap-3">

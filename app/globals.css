@@ -45,18 +45,56 @@ body {
   /* background: rgb(112, 112, 112) 3b3; */
 }
 
-.ant-carousel {
-  position: relative;
+.slick-prev,
+.slick-next {
+  opacity: 0; /* Ẩn mũi tên mặc định */
+  transition: opacity 0.3s ease; /* Tạo hiệu ứng mượt mà khi hiện/ẩn */
+  background-color: white; /* Nền trắng */
+  border-radius: 50%; /* Hình tròn */
+  width: 40px; /* Điều chỉnh kích thước */
+  height: 40px; /* Điều chỉnh kích thước */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1; /* Đảm bảo mũi tên ở trên cùng */
 }
 
-.ant-carousel .slick-prev,
-.ant-carousel .slick-next {
-  position: absolute;
-  left: "-35px";
-  right: "-35px";
+.slick-prev:before,
+.slick-next:before {
+  font-family: "slick"; /* Sử dụng icon của Slick Carousel */
+  font-size: 20px; /* Điều chỉnh kích thước icon */
+  color: black; /* Màu icon */
 }
 
-.ant-carousel .slick-next {
+.slick-prev:hover,
+.slick-next:hover {
+  opacity: 1; /* Hiện mũi tên khi hover */
+}
+
+.slick-prev {
+  left: -20px; /* Đẩy mũi tên ra ngoài lề bên trái */
+}
+
+.slick-next {
+  right: -20px; /* Đẩy mũi tên ra ngoài lề bên phải */
+}
+
+.ant-carousel .slick-slider {
+  overflow: hidden; /* Ẩn phần mũi tên bị tràn ra ngoài */
+}
+
+@media (max-width: 640px) {
+  .ant-carousel .slick-dots {
+    display: block !important;
+    bottom: 0;
+    margin-top: 50px;
+  }
+}
+
+@media (min-width: 640px) {
+  .ant-carousel .slick-dots {
+    display: none !important;
+  }
 }
 
 @layer utilities {
