@@ -12,6 +12,10 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)"
       },
+      boxShadow: {
+        custom:
+          "1px 1px 2px 0 rgba(60,64,67,0.1), 0 2px 6px 2px rgba(60,64,67,0.15)"
+      },
       keyframes: {
         fadeIn: {
           "0%": { opacity: "0" },

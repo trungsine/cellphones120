@@ -30,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleDropdown }) => {
 
   return (
     <div className="justify-center bg-[#e1042a]  w-full flex">
-      <div className="header-container w-[1200px] bg-[#e1042a] flex items-center justify-around lg:justify-between text-xs text-[#fff] relative h-[64px]">
+      <div className="header-container w-[1200px] bg-[#e1042a] flex items-center justify-between px-[10px] lg:justify-between text-xs text-[#fff] relative h-[64px]">
         <div className="hidden sm:hidden lg:flex">
           <Image
             width={170}

@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
-
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +13,7 @@
 body {
   font-family: Roboto, sans-serif;
   width: 100%;
-  background-color: red;
+  background-color: white;
 }
 
 .customWidth {
@@ -21,6 +22,15 @@ body {
 
 .custom {
   @apply cursor-pointer hidden md:hidden lg:flex h-[42px]  items-center rounded-[10px] hover:bg-[#df3346] py-[3px] px-[10px];
+}
+
+/* Custom Hover First List */
+ul.flex li a.active {
+  color: #d70018;
+}
+
+ul.flex li a:hover {
+  color: #d70018;
 }
 
 /* Ẩn thanh scrollbar mặc định trên Webkit (Chrome, Safari, Edge) */
@@ -45,6 +55,15 @@ body {
   /* background: rgb(112, 112, 112) 3b3; */
 }
 
+.scrollbar-hide::-webkit-scrollbar {
+  width: 0px; /* Ẩn thanh cuộn trên WebKit (Chrome, Safari) */
+}
+
+.scrollbar-hide {
+  scrollbar-width: none; /* Ẩn thanh cuộn trên Firefox */
+  -ms-overflow-style: none; /* Ẩn thanh cuộn trên IE/Edge */
+}
+
 .slick-prev,
 .slick-next {
   opacity: 0; /* Ẩn mũi tên mặc định */
@@ -63,7 +82,6 @@ body {
 .slick-next:before {
   font-family: "slick"; /* Sử dụng icon của Slick Carousel */
   font-size: 20px; /* Điều chỉnh kích thước icon */
-  color: black; /* Màu icon */
 }
 
 .slick-prev:hover,
@@ -83,15 +101,76 @@ body {
   overflow: hidden; /* Ẩn phần mũi tên bị tràn ra ngoài */
 }
 
-@media (max-width: 640px) {
+/* .slick-dots .slick-dots-bottom {
+  width: 50px;
+} */
+
+/* .slick-list {
+  position: relative;
+  padding-bottom: 10px;
+} */
+/* .slick-dots .slick-dots-bottom {
+  position: absolute;
+} */
+
+.ant-carousel {
+  /* height: 292px; */
+}
+
+/* .ant-carousel .slick-dots li {
+  margin: 0 8px;
+  width: 8px;
+} */
+
+.ant-carousel .slick-dots li.slick-active {
+  width: 20px;
+  height: 8px;
+}
+
+.ant-carousel .slick-dots li button {
+  height: 8px;
+  width: 8px;
+  background-color: #707070;
+}
+
+.ant-carousel .slick-dots li button::after {
+  width: 8px;
+  height: 8px;
+}
+.ant-carousel .slick-dots li.slick-active button {
+  width: 20px;
+  height: 100%;
+  border-radius: 50px;
+  background-color: #d70018;
+}
+
+.ant-carousel .slick-dots li button::before,
+.ant-carousel .slick-dots li button::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  opacity: 0.25;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.few-items {
+  position: relative;
+  top: -90px;
+}
+
+@media (max-width: 768px) {
   .ant-carousel .slick-dots {
-    display: block !important;
+    position: inherit;
+    display: flex !important;
     bottom: 0;
-    margin-top: 50px;
+    margin: 10px 0;
+    color: none;
   }
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .ant-carousel .slick-dots {
     display: none !important;
   }
