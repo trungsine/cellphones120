@@ -15,6 +15,9 @@ body {
   width: 100%;
   background-color: white;
 }
+.custom-width-mobile {
+  width: calc(100% + 200px);
+}
 
 .customWidth {
   @apply w-12 whitespace-nowrap overflow-hidden text-ellipsis lg:w-auto lg:whitespace-normal lg:overflow-visible  lg:text-clip;

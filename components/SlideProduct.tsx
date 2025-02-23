@@ -60,28 +60,6 @@ const SlideProduct: React.FC<SlideProductProps> = () => {
     setInitialLoad(false);
   };
 
-  // useEffect(() => {
-  //   // Lấy vị trí top của item đầu tiên khi component được render hoặc listItems thay đổi
-  //   if (listItems.length > 0) {
-  //     const firstItem = document.querySelector('.group:first-child'); // Chọn phần tử đầu tiên có class "group"
-  //     if (firstItem) {
-  //       const rect = firstItem.getBoundingClientRect();
-  //       setPopupPosition({
-  //         top: rect.top + window.scrollY, // Cộng thêm scrollY để lấy vị trí top trên toàn trang
-  //         left: rect.left + 10, // Vị trí left tùy chỉnh
-  //       });
-  //     }
-  //   }
-  // }, [listItems]); // Chạy useEffect khi listItems thay đổi
-
-  //  const handleMouseEnter = () => {
-  //   setHoverIndex(0); // Luôn hiển thị popup ở item đầu tiên
-  // };
-
-  // const handleMouseLeave = () => {
-  //   setHoverIndex(null); // Ẩn popup khi rời chuột
-  // };
-
   const handleMouseEnter = (index: number) => {
     setHoverIndex(index);
   };
@@ -151,11 +129,11 @@ const SlideProduct: React.FC<SlideProductProps> = () => {
         </div>
       </div>
       {/* Center */}
-      <div className="max-w-[672px] w-full h-0 bg-red-300 md:h-[320px] lg:h-full max-h[376px]  flex flex-col rounded-xl mx-auto boxShadow-custom">
+      <div className="max-w-[672px] w-full h-0 bg-red-300  md:h-[320px] lg:h-full max-h[376px]  flex flex-col rounded-xl mx-auto boxShadow-custom">
         {/* Top 294px */}
-        <div className="bg-red-600 h-full w-full md:min-h-[259px] max-h-[294px] relative ">
+        <div className="bg-red-600 h-full w-full  md:min-h-[259px] max-h-[294px] relative ">
           {/* Carousel */}
-          <div className="absolute overflow-hidden md:h-[259px] lg:h-full  w-full">
+          <div className="absolute overflow-hidden  md:h-[259px] lg:h-full  w-full">
             <Carousel
               className="bg-transparent object-fill md:h-[259px] lg:h-full"
               dots={true}

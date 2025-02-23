@@ -9,8 +9,11 @@ import { useState } from "react";
 import MenuBottom from "@/components/MenuBottom";
 import BannerBottom from "@/components/BannerBottom";
 
+import useStore from "../store/store";
+
 export default function Home() {
   const [showDropdown, setShowDropdown] = useState(false);
+  const isActive = useStore((state) => state.isActive);
 
   const handleToggleDropdown = () => {
     setShowDropdown((prev) => !prev);
@@ -23,8 +26,11 @@ export default function Home() {
         <Banner />
         <Header onToggleDropdown={handleToggleDropdown} />
         {showDropdown && <Dropdown onToggleDropdown={handleToggleDropdown} />}
-        <SlideProduct id="popup-portal" />
-        <BannerBottom />
+
+        <div style={{ display: isActive ? "none" : "block" }}>
+          <SlideProduct id="popup-portal" />
+          <BannerBottom />
+        </div>
         <MenuBottom />
       </div>
     </main>
