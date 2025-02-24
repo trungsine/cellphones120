@@ -4,6 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
+
 * {
   margin: 0;
   padding: 0;
@@ -38,6 +39,7 @@ ul.flex li a:hover {
 
 /* Ẩn thanh scrollbar mặc định trên Webkit (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
+  display: none;
   width: 5px; /* Độ rộng của thanh scrollbar dọc */
   height: 10px; /* Độ cao của thanh scrollbar ngang */
 }
@@ -55,7 +57,7 @@ ul.flex li a:hover {
 
 /* Đặt màu nền cho thanh kéo khi hover */
 ::-webkit-scrollbar-thumb:hover {
-  /* background: rgb(112, 112, 112) 3b3; */
+  background: rgb(112, 112, 112) 3b3;
 }
 
 .scrollbar-hide::-webkit-scrollbar {

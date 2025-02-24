@@ -14,10 +14,12 @@ import useStore from "../store/store";
 export default function Home() {
   const [showDropdown, setShowDropdown] = useState(false);
   const isActive = useStore((state) => state.isActive);
-
+  const [windowWidth] = useState(window.innerWidth);
   const handleToggleDropdown = () => {
     setShowDropdown((prev) => !prev);
   };
+
+  const innerDisplayStyle = windowWidth > 768 ? "none" : "block";
 
   return (
     <main>
@@ -29,6 +31,7 @@ export default function Home() {
 
         <div style={{ display: isActive ? "none" : "block" }}>
           <SlideProduct id="popup-portal" />
+
           <BannerBottom />
         </div>
         <MenuBottom />
