@@ -11,12 +11,22 @@ import { FaChevronLeft } from "react-icons/fa6";
 import Popup from "./Popup";
 // import listItems from "@/store/listItems";
 
-const contentStyle: React.CSSProperties = {
+// const contentStyle: React.CSSProperties = {
+//   margin: 0,
+//   height: "294px",
+//   width: "100%",
+//   color: "#fff",
+//   lineHeight: "294px",
+//   textAlign: "center",
+//   background: "#364d79",
+//   objectFit: "fill"
+// };
+const mdStyle: React.CSSProperties = {
   margin: 0,
-  height: "294px",
+  height: "259px",
   width: "100%",
   color: "#fff",
-  lineHeight: "294px",
+  lineHeight: "259px",
   textAlign: "center",
   background: "#364d79",
   objectFit: "fill"
@@ -96,10 +106,10 @@ const SlideProduct: React.FC<SlideProductProps> = () => {
   };
 
   return (
-    <div className="relative  h-[322px] md:h-[320px]  lg:h-[376px] group z-10 max-w-[1200px] bg-white rounded-none sm:rounded-xl mx-auto grid grid-cols-[0%,100%,0%] md:grid-rows- md:grid-cols-[20%,80%,0%] lg:grid-cols-[19%,59%,22%] gap-0 my-4 px-[10px] pt-0 ">
+    <div className="relative  h-[287px] md:h-[322px]  lg:h-[376px] group z-10 max-w-[1200px] bg-white rounded-none sm:rounded-xl mx-auto grid grid-cols-[0%,100%,0%] md:grid-rows- md:grid-cols-[20%,80%,0%] lg:grid-cols-[19%,59%,22%] gap-0 my-4 px-[10px] pt-0 ">
       {/* Left */}
       <div
-        className=" bg-white max-w-[220px]  md:h-[320px] lg:h-full  boxShadow-custom rounded-xl overflow-y-auto"
+        className=" bg-white max-w-[220px]  md:h-[322px] lg:h-full  boxShadow-custom rounded-xl overflow-y-auto"
         id="popup-portal"
       >
         <div className="hidden sm:grid grid-rows-12 min-h-[376px] flex-col w-full h-full mb-0 ">
@@ -129,13 +139,13 @@ const SlideProduct: React.FC<SlideProductProps> = () => {
         </div>
       </div>
       {/* Center */}
-      <div className="max-w-[672px] w-full h-0 bg-red-300  md:h-[320px] lg:h-full max-h[376px]  flex flex-col rounded-xl mx-auto boxShadow-custom">
+      <div className="w-100vw h-100vh  w-full h-0 bg-red-300  md:h-[320px] lg:h-full max-h[376px]  grid md:grid-rows-[259px,62px] lg:grid-rows-[294px,82px] rounded-xl mx-auto boxShadow-custom">
         {/* Top 294px */}
-        <div className="bg-red-600 h-full w-full  md:min-h-[259px] max-h-[294px] relative ">
+        <div className="min-h-[259px] relative ">
           {/* Carousel */}
-          <div className="absolute overflow-hidden  md:h-[259px] lg:h-full  w-full">
+          <div className="absolute overflow-x-hidden  object-fill  lg:h-full  w-full">
             <Carousel
-              className="bg-transparent object-fill md:h-[259px] lg:h-full"
+              className="bg-transparent  "
               dots={true}
               // autoplay
               ref={carouselRef}
@@ -145,8 +155,8 @@ const SlideProduct: React.FC<SlideProductProps> = () => {
                 return (
                   <div key={index} className="">
                     <img
-                      className="relative rounded-xl md:rounded-none  object-fill w-full"
-                      style={contentStyle}
+                      className="bg-red-300 md:h-[259px] lg:h-[294px] rounded-xl md:rounded-none  w-full "
+                      style={mdStyle}
                       src={value}
                       alt="slide"
                       // width={669}
@@ -190,14 +200,15 @@ const SlideProduct: React.FC<SlideProductProps> = () => {
 
         {/* Bottom 82px */}
         {/* Buttons Navigate */}
+        {/* End Button Navigate */}
         <div
-          className="bg-white hidden sm:rounded-bl-xl sm:rounded-br-xl md:flex w-full overflow-x-auto overflow-y-hidden scrollbar-hide h-full min-h-[61px] max-h-[82px]"
+          className="xinchao bg-white hidden sm:rounded-bl-xl sm:rounded-br-xl md:flex w-full overflow-x-auto overflow-y-hidden scrollbar-hide h-full md:h-16  lg:h-[82px]"
           ref={containerRef}
         >
           {buttons.map((value, index) => (
             <div
               key={index}
-              className={`w-[20%] md:w-[25%]  shrink-0 justify-center flex hover:bg-[#f3f4f6] ${
+              className={`md:w-[25%] lg:w-[20%] shrink-0  justify-center flex hover:bg-[#f3f4f6] ${
                 currentSlide === index ? "active" : ""
               } ${
                 currentSlide === index && initialLoad
@@ -216,7 +227,6 @@ const SlideProduct: React.FC<SlideProductProps> = () => {
             </div>
           ))}
         </div>
-        {/* End Button Navigate */}
       </div>
       {/* Right */}
       <div className="grid grid-rows-3 h-full max-h-[376px] max-w-[258px] gap-3">

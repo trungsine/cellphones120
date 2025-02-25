@@ -98,13 +98,11 @@ const MenuBottom = () => {
                         {a.contentTitle.map((c, d) => {
                           return (
                             <>
+                              <strong className="text-base text-[#363636] font-bold">
+                                {c.titleItem}
+                              </strong>
                               <div key={d} className="overflow-y-auto">
-                                <div className="overflow-hidden">
-                                  <h3 className="text-base text-[#363636] font-bold">
-                                    {c.titleItem}
-                                  </h3>
-                                </div>
-                                <div className="flex flex-wrap  custom-width-mobile">
+                                <div className="flex flex-wrap  custom-width-mobile ">
                                   {c.contentTitleItem.map(
                                     (valueChild, index) => {
                                       // const isUrl = valueChild.startsWith("https")
@@ -116,24 +114,21 @@ const MenuBottom = () => {
                                             valueChild.contentTitleImg
                                               ? "flex-col"
                                               : ""
-                                          }  flex items-center my-[5px] mr-[10px] px-[10px] py-[5px] border border-solid border-[#d1d5db] rounded-[10px] min-h-[34px]`}
+                                          }  flex items-center my-[5px] mr-[10px]  px-[10px] py-[5px] border border-solid border-[#d1d5db] rounded-[10px] `}
                                         >
                                           {valueChild.contentTitleImg ? (
-                                            <div className="w-[50px] ">
-                                              <a className="">
-                                                <img
-                                                  src={
-                                                    valueChild.contentTitleImg
-                                                  }
-                                                  alt=""
-                                                  className=""
-                                                />
-                                              </a>
+                                            <div className="w-[50px] h-fit">
+                                              <img
+                                                src={valueChild.contentTitleImg}
+                                                alt=""
+                                                className=""
+                                              />
                                             </div>
                                           ) : null}
+
                                           {valueChild.contentTitleDes ? (
-                                            <div>
-                                              <a className="text-xs text-[#4a4a4a] py-[5px] px-[10px] w-[50px] w-52">
+                                            <div className="">
+                                              <a className="w-full h-full text-xs  text-[#4a4a4a] ">
                                                 {valueChild.contentTitleDes}
                                               </a>
                                             </div>

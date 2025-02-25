@@ -1,4 +1,5 @@
 interface ListItemMobile {
+  id: number;
   title: string;
   logo: string;
   titleLeft: string;
@@ -14,6 +15,7 @@ interface ListItemMobile {
 
 export const listItemMobile: ListItemMobile[] = [
   {
+    id: 0,
     title: "Điện thoại",
     logo: "https://cdn2.cellphones.com.vn/insecure/rs:fill:90:0/q:90/plain/https://cellphones.com.vn/media/tmp/catalog/product/i/p/iphone-15-menu-0001.png",
     titleLeft: "Điện thoại",
@@ -184,6 +186,7 @@ export const listItemMobile: ListItemMobile[] = [
   },
 
   {
+    id: 2,
     title: "Tablet",
     logo: "https://cdn2.cellphones.com.vn/insecure/rs:fill:90:0/q:90/plain/https://cellphones.com.vn/media/tmp/catalog/product/t/_/t_i_xu_ng_9__3.png",
     titleLeft: "Tablet",
@@ -280,6 +283,7 @@ export const listItemMobile: ListItemMobile[] = [
     ]
   },
   {
+    id: 3,
     title: "Laptop",
     logo: "https://cdn2.cellphones.com.vn/insecure/rs:fill:90:0/q:90/plain/https://cellphones.com.vn/media/catalog/product/m/b/mb-laptop.png",
     titleLeft: "Laptop",
@@ -387,7 +391,7 @@ export const listItemMobile: ListItemMobile[] = [
           {
             contentTitleImg:
               "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:50/q:90/plain/https://cellphones.com.vn/media/icons/category/laptop/filter-cate-972.svg",
-            contentTitleDes: "Đồ hoạ - Kỹ thuật"
+            contentTitleDes: "Đồ họa - kỹ thuật"
           },
           {
             contentTitleImg:
@@ -480,6 +484,7 @@ export const listItemMobile: ListItemMobile[] = [
     ]
   },
   {
+    id: 4,
     title: "Âm thanh",
     logo: "https://cdn2.cellphones.com.vn/insecure/rs:fill:90:0/q:90/plain/https://cellphones.com.vn/media/catalog/product/m/b/mb-audio.png",
     titleLeft: "Âm thanh",
@@ -787,6 +792,7 @@ export const listItemMobile: ListItemMobile[] = [
     ]
   },
   {
+    id: 5,
     title: "Đồng hồ",
     logo: "https://cdn2.cellphones.com.vn/insecure/rs:fill:90:0/q:90/plain/https://cellphones.com.vn/media/catalog/product/d/o/dong-ho.png",
     titleLeft: "Đồng hồ",
@@ -919,6 +925,7 @@ export const listItemMobile: ListItemMobile[] = [
     ]
   },
   {
+    id: 6,
     title: "Camera",
     logo: "https://cdn2.cellphones.com.vn/insecure/rs:fill:90:0/q:90/plain/https://cellphones.com.vn/media/catalog/product/g/o/gopro-menu.png",
     titleLeft: "Camera",
@@ -1068,6 +1075,7 @@ export const listItemMobile: ListItemMobile[] = [
     ]
   },
   {
+    id: 7,
     title: "Gia dụng",
     logo: "https://cdn2.cellphones.com.vn/insecure/rs:fill:90:0/q:90/plain/https://cellphones.com.vn/media/tmp/catalog/product/g/i/giadung-nha-thong-minh.png",
     titleLeft: "Gia dụng",
@@ -1294,6 +1302,7 @@ export const listItemMobile: ListItemMobile[] = [
     ]
   },
   {
+    id: 8,
     title: "Phụ kiện",
     logo: "https://cdn2.cellphones.com.vn/insecure/rs:fill:90:0/q:90/plain/https://cellphones.com.vn/media/catalog/product/m/b/mb-accessories.png",
     titleLeft: "Phụ kiện",
@@ -1552,6 +1561,7 @@ export const listItemMobile: ListItemMobile[] = [
     ]
   },
   {
+    id: 9,
     title: "PC, Màn hình",
     logo: "https://cdn2.cellphones.com.vn/insecure/rs:fill:90:0/q:90/plain/https://cellphones.com.vn/media/catalog/product/m/b/mb-monitor-pc.png",
     titleLeft: "PC, Màn hình",
@@ -1803,6 +1813,7 @@ export const listItemMobile: ListItemMobile[] = [
     ]
   },
   {
+    id: 10,
     title: "Tivi",
     logo: "https://cdn2.cellphones.com.vn/insecure/rs:fill:90:0/q:90/plain/https://cellphones.com.vn/media/catalog/product/m/b/mb-tv.png",
     titleLeft: "Tivi",
@@ -2004,6 +2015,7 @@ export const listItemMobile: ListItemMobile[] = [
     ]
   },
   {
+    id: 11,
     title: "Thu cũ đổi mới",
     logo: "https://cdn2.cellphones.com.vn/insecure/rs:fill:90:0/q:90/plain/https://cellphones.com.vn/media/catalog/product/m/b/mb-trade-in.png",
     titleLeft: "Thu cũ đổi mới",
@@ -2119,6 +2131,7 @@ export const listItemMobile: ListItemMobile[] = [
     ]
   },
   {
+    id: 12,
     title: "Hàng cũ",
     logo: "https://cdn2.cellphones.com.vn/insecure/rs:fill:90:0/q:90/plain/https://cellphones.com.vn/media/catalog/product/m/b/mb-old.png",
     titleLeft: "Hàng cũ",
@@ -2344,6 +2357,7 @@ export const listItemMobile: ListItemMobile[] = [
     ]
   },
   {
+    id: 13,
     title: "Khuyến mãi",
     logo: "https://cdn2.cellphones.com.vn/insecure/rs:fill:90:0/q:90/plain/https://cellphones.com.vn/media/tmp/catalog/product/t/_/t_i_xu_ng_-_2022-06-07t114601.808.png",
     titleLeft: "Khuyến mãi",
@@ -2444,6 +2458,7 @@ export const listItemMobile: ListItemMobile[] = [
     ]
   },
   {
+    id: 14,
     title: "Tin công nghệ",
     logo: "https://cdn2.cellphones.com.vn/insecure/rs:fill:90:0/q:90/plain/https://cellphones.com.vn/media/tmp/catalog/product/t/_/t_i_xu_ng_-_2022-06-07t114705.508.png",
     titleLeft: "Tin công nghệ",
