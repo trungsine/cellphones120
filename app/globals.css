@@ -21,11 +21,64 @@ body {
 }
 
 .customWidth {
-  @apply w-12 whitespace-nowrap overflow-hidden text-ellipsis lg:w-auto lg:whitespace-normal lg:overflow-visible  lg:text-clip;
+  width: 5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 1024px) {
+  .customWidth {
+    width: auto;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+  }
 }
 
 .custom {
-  @apply cursor-pointer hidden md:hidden lg:flex h-[42px]  items-center rounded-[10px] hover:bg-[#df3346] py-[3px] px-[10px];
+  cursor: pointer;
+  display: none;
+  height: 42px;
+  align-items: center;
+  border-radius: 10px;
+  padding: 3px 10px;
+}
+
+@media (min-width: 768px) {
+  .custom {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .custom {
+    display: flex;
+  }
+  .custom:hover {
+    background-color: #df3346;
+  }
+}
+
+.mdStyle {
+  margin: 0;
+  height: 259px;
+  min-height: 259px;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  object-fit: fill;
+}
+@media screen and (max-width: 640px) {
+  .mdStyle {
+    margin: 0;
+    height: 220px;
+    min-height: 220px;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    object-fit: fill;
+  }
 }
 
 /* Custom Hover First List */
@@ -155,7 +208,7 @@ ul.flex li a:hover {
   top: 0;
   left: 0;
   text-align: center;
-  opacity: 0.25;
+  opacity: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -165,7 +218,7 @@ ul.flex li a:hover {
   top: -90px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .ant-carousel .slick-dots {
     position: inherit;
     display: flex !important;
@@ -175,7 +228,7 @@ ul.flex li a:hover {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .ant-carousel .slick-dots {
     display: none !important;
   }

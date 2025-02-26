@@ -100,13 +100,13 @@ const Header: React.FC<HeaderProps> = ({ onToggleDropdown }) => {
 
         <div className="custom">
           <CiLocationOn className="text-2xl mr-[5px]" />
-          <div className="customWidth">
+          <div className="">
             {isLargeScreen ? (
               <span className="text-xs m-0">
                 Cửa hàng <br /> gần bạn
               </span>
             ) : (
-              <span className="text-xs m-0">
+              <span className="text-xs m-0 ">
                 Cửa <br /> hàng gần bạn
               </span>
             )}
@@ -115,9 +115,9 @@ const Header: React.FC<HeaderProps> = ({ onToggleDropdown }) => {
 
         <div className="cursor-pointer hidden sm:hidden lg:flex h-[42px]  items-center rounded-[10px] hover:bg-[#df3346] py-[3px] px-[10px]">
           <LiaShippingFastSolid className="text-2xl mr-[5px]" />
-          <h2 className="text-xs m-0">
+          <span className="text-xs m-0 ">
             Tra cứu <br /> đơn hàng
-          </h2>
+          </span>
         </div>
 
         <div className="order-2 lg:order-none bg-[#df3346] lg:bg-transparent lg:hover:bg-[#df3346] cursor-pointer h-[42px] flex-row lg:flex items-center rounded-[10px] pb-[6px] py-[3px] px-[10px] sm:px-10  md:px-[10px]">

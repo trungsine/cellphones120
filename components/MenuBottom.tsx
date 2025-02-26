@@ -50,9 +50,9 @@ const MenuBottom = () => {
       {/* Popup Active */}
       {isActive ? (
         <>
-          <div className="block md:hidden relative">
+          <div className="block sm:hidden relative ">
             {/* Left */}
-            <div className="relative h-[400px] overflow-y-auto scrollbar-hide">
+            <div className="relative h-[68vh] overflow-y-auto scrollbar-hide">
               {listItemMobile.map((currentValue, index) => {
                 const backgroundColor = colors[index % colors.length];
                 indexValue.push(index);
@@ -81,7 +81,7 @@ const MenuBottom = () => {
             </div>
 
             {/*   Right */}
-            <div className="p-[10px] absolute top-0 left-20 max-w-[687px] h-[400px]  overflow-y-auto scrollbar-hide ">
+            <div className="p-[10px] absolute top-0 left-20 max-w-[687px] h-[68vh]  overflow-y-auto scrollbar-hide ">
               {listItemMobile.map((a, b) => {
                 return (
                   <div key={b}>
@@ -152,7 +152,7 @@ const MenuBottom = () => {
         </>
       ) : null}
       {/* Bottom */}
-      <div className="block md:hidden z-50 sticky top-0 h-[72px] py-[10px] border border-solid  rounded-t-2xl">
+      <div className="block sm:hidden z-50 fixed bottom-0 w-full h-[72px] py-[10px] border border-solid  rounded-t-2xl">
         <ul className="flex justify-around h-full items-center mb-0">
           <li className="p-[5px]">
             <a

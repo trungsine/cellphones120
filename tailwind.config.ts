@@ -27,6 +27,11 @@ const config: Config = {
       }
     }
   },
-  plugins: []
+  plugins: [
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    require("tailwindcss")(),
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    require("autoprefixer")()
+  ]
 };
 export default config;
