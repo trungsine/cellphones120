@@ -39,25 +39,12 @@ const SlideProduct: React.FC<SlideProductProps> = () => {
   const handleButtonClick = (index: number) => {
     setCurrentSlide(index);
     carouselRef.current?.goTo(index);
-
     setInitialLoad(false);
   };
 
-  const handleMouseEnter = (index: number) => {
+  // Event khi hover vào list product
+  const handleMouseHover = (index: number) => {
     setHoverIndex(index);
-  };
-
-  // Navigation Button
-  const slickPrev = () => {
-    carouselRef.current?.prev();
-    // Sau khi carousel chuyển slide, hãy cuộn đến item active
-    scrollToActiveItem();
-  };
-
-  const slickNext = () => {
-    carouselRef.current?.next();
-    // Sau khi carousel chuyển slide, hãy cuộn đến item active
-    scrollToActiveItem();
   };
 
   const scrollToActiveItem = () => {
@@ -68,6 +55,19 @@ const SlideProduct: React.FC<SlideProductProps> = () => {
       activeItem &&
         activeItem.scrollIntoView({ behavior: "smooth", inline: "nearest" });
     }
+  };
+
+  // Sự kiện khi click button left, right ở slide
+  const slickPrev = () => {
+    carouselRef.current?.prev();
+    // Sau khi carousel chuyển slide, hãy cuộn đến item active
+    scrollToActiveItem();
+  };
+
+  const slickNext = () => {
+    carouselRef.current?.next();
+    // Sau khi carousel chuyển slide, hãy cuộn đến item active
+    scrollToActiveItem();
   };
 
   useEffect(() => {
@@ -91,7 +91,7 @@ const SlideProduct: React.FC<SlideProductProps> = () => {
               <div
                 className="px-2 relative "
                 key={index}
-                onMouseEnter={() => handleMouseEnter(index)}
+                onMouseEnter={() => handleMouseHover(index)}
                 onMouseLeave={() => setHoverIndex(null)}
               >
                 <div className="flex items-center relative">

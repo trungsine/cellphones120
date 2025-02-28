@@ -17,8 +17,6 @@ const MenuBottom = () => {
   const [hoverIndex, setHoverIndex] = useState<number | null>(0);
   // const [isActive, setIsActive] = useState<boolean>(false);
 
-  const indexValue: number[] = [];
-
   const colors = [
     "rgb(253,180,180)",
     "rgb(255,237,213)",
@@ -43,8 +41,6 @@ const MenuBottom = () => {
     setIsActive(false);
   };
 
-  console.log(hoverIndex);
-
   return (
     <>
       {/* Popup Active */}
@@ -55,7 +51,7 @@ const MenuBottom = () => {
             <div className="relative h-[68vh] overflow-y-auto scrollbar-hide">
               {listItemMobile.map((currentValue, index) => {
                 const backgroundColor = colors[index % colors.length];
-                indexValue.push(index);
+
                 return (
                   <>
                     <div
@@ -151,6 +147,7 @@ const MenuBottom = () => {
           </div>
         </>
       ) : null}
+
       {/* Bottom */}
       <div className="block sm:hidden z-50 fixed bottom-0 w-full h-[72px] py-[10px] border border-solid  rounded-t-2xl">
         <ul className="flex justify-around h-full items-center mb-0">

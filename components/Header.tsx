@@ -16,10 +16,10 @@ type HeaderProps = {
 
 const Header: React.FC<HeaderProps> = ({ onToggleDropdown }) => {
   const [isLargeScreen, setisLargeScreen] = useState<boolean>(false);
-  //Event Resize Update Window Size
+  // Event Resize Cập nhật lại width
   useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 1100px)");
-    setisLargeScreen(mediaQuery.matches); // kiểm tra kích thước lập tức
+    setisLargeScreen(mediaQuery.matches); // kiểm tra width có match với 1100px
 
     const handleChange = (e: MediaQueryListEvent) =>
       setisLargeScreen(e.matches);
@@ -126,11 +126,10 @@ const Header: React.FC<HeaderProps> = ({ onToggleDropdown }) => {
           </div>
 
           <h2 className="text-[9px] md:text-xs  m-0">
-            Giỏ{" "}
+            Giỏ
             <span className="hidden lg:inline">
-              {" "}
-              <br />{" "}
-            </span>{" "}
+              <br />
+            </span>
             hàng
           </h2>
         </div>

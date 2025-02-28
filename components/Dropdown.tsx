@@ -9,7 +9,11 @@ type DropdownProps = {
 
 const Dropdown: React.FC<DropdownProps> = ({ onToggleDropdown }) => {
   const handleClickInsideDropdown = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Ngừng propagation sự kiện, tránh overlay bị bấm
+    e.stopPropagation();
+    /** ngăn event của chuột tránh truyền cho thành phần cha.Đảm bảo
+     * khi user click vào dropdown, thì chỉ dropdown nhận event và các
+     * thành phần của dropdown
+     */
   };
 
   // state lưu trữ value của input
